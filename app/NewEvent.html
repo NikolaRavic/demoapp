@@ -5,8 +5,17 @@
     <title>Event Registration</title>
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        input.ng-invalid.ng-dirty
+        {
+            background-color: pink
+        }
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
 </head>
-<body ng-cloak>
+<body >
 <div class="container">
     <div class="navbar">
         <div class="navbar-inner">
@@ -15,21 +24,12 @@
             </ul>
         </div>
     </div>
-    <style>
-        input.ng-invalid.ng-dirty
-        {
-            background-color: pink
-        }
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-            display: none;
-        }
 
-    </style>
-    <div ng-controller="EditEventController"  style="padding-left: 20px;padding-right: 20px">
+    <div ng-controller="EditEventController" style="padding-left: 20px;padding-right: 20px" >
         <div class="container">
             <h1>New Event</h1>
             <hr />
-            <form name="newEventForm">
+            <form name="newEventForm" ng-cloak>
                 <fieldset>
                     <label for="eventName">Event Name:</label>
                     <input id="eventName" type="text" required ng-model="event.name" placeholder="Name of your event..." />

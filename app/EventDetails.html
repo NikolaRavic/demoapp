@@ -5,6 +5,11 @@
     <title>Event Registration</title>
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -16,20 +21,20 @@
         </div>
     </div>
     <div ng-controller="EventController"  style="padding-left: 20px;padding-right: 20px">
-        <img ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
+        <img ng-cloak ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
         <div class="row">
             <div class="spann11">
-                <h2 ng-bind-template="{{event.name | uppercase}} {{event.date}}"></h2>
+                <h2 ng-cloak ng-bind-template="{{event.name | uppercase}} {{event.date}}"></h2>
             </div>
         </div>
         <div class="row">
-            <div class="spann3">
+            <div class="spann3" ng-cloak>
                 <div><strong>Date: </strong>{{date | date:'medium'}}</div>
                 <div><strong>Time: </strong>{{event.time}}</div>
                 <div><strong>Price: </strong>{{43 | currency}}</div>
             </div>
             <div class="span4">
-                <address>
+                <address ng-cloak>
                     <strong>Address:</strong><br>
                     {{event.location.address}}<br>
                     {{event.location.city}}, {{event.location.province}}
@@ -51,7 +56,7 @@
             <option selected value="intermediate">Intermediate</option>
             <option selected value="advanced">Advanced</option>
         </select>
-        <ul class="thumbnails">
+        <ul class="thumbnails" ng-cloak>
             <li ng-repeat="session in event.sessions |orderBy:sortOrder | filter:query  ">
                 <div class="row session">
                     <div class="span0 well votingWidget" style="background-color: silver">
